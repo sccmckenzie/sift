@@ -8,7 +8,7 @@
 #'
 #' @examples
 #' 1
-autoK <- function(x) {
+klassify <- function(x) {
 
   # Coerce x to numeric
   tryCatch(
@@ -39,10 +39,13 @@ autoK <- function(x) {
 
   # kernel density estimation
   d <- stats::density(xnm$x, bw = "SJ")
-  tp <- pastecs::turnpoints(d$y)
-  boundaries <- d$x[tp$pits]
+  d$y <- d$y / max(d$y)
+  d$y[d$y < 0.00001] <- 0
 
-  xnm$out <- scollateC(xnm$x, boundaries) + 1
+  tp <- pastecs::turnpoints(d$y)
+  boundaries <- d$x[tp$pos[tp$pits]]
+
+  xnm$out <- scollate(xnm$x, boundaries) + 1
 
   result <- rbind(xdf[is.na(xdf$x), ], xnm)
 

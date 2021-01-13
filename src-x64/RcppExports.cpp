@@ -5,21 +5,21 @@
 
 using namespace Rcpp;
 
-// scollate
-std::vector<int> scollate(std::vector<double> x, std::vector<double> boundaries);
-RcppExport SEXP _sift_scollate(SEXP xSEXP, SEXP boundariesSEXP) {
+// scollateC
+std::vector<int> scollateC(std::vector<double> x, std::vector<double> boundaries);
+RcppExport SEXP _sift_scollateC(SEXP xSEXP, SEXP boundariesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::vector<double> >::type x(xSEXP);
     Rcpp::traits::input_parameter< std::vector<double> >::type boundaries(boundariesSEXP);
-    rcpp_result_gen = Rcpp::wrap(scollate(x, boundaries));
+    rcpp_result_gen = Rcpp::wrap(scollateC(x, boundaries));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_sift_scollate", (DL_FUNC) &_sift_scollate, 2},
+    {"_sift_scollateC", (DL_FUNC) &_sift_scollateC, 2},
     {NULL, NULL, 0}
 };
 
