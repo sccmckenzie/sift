@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -9,7 +11,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  dpi = 300,
+  type = 'cairo'
 )
 ```
 
@@ -20,6 +24,12 @@ knitr::opts_chunk$set(
 
 sift facilitates **intelligent** & **efficient** exploration of datasets.
 
+* `klassify` - reveals **implicit grouping** in continuous data.
+
+* `kollate`
+
+* `sift` - **augmented** dataset subsetting.
+
 ## Installation
 
 ``` r
@@ -27,30 +37,49 @@ sift facilitates **intelligent** & **efficient** exploration of datasets.
 devtools::install_github("sccmckenzie/sift")
 ```
 
-3 functions are provided:
+### `klassify`
 
-* `sift` -  *augmented* dataset subsetting. Imagine `dplyr::filter()` that includes neighboring observations.
+Imagine 1D K-means, except K is chosen automatically. As an example, consider the `faithful` dataset. 
 
-* `klassify` - reveal implicit grouping in continuous data.  Imagine 1D KNN - except you don't have to provide K.
+```{r}
+head(faithful$eruptions)
+```
 
-* `kollate`
+The density plot below clearly demonstrates there are **2** clusters of eruptions.
 
+```{r echo = FALSE, fig.height=2}
+library(ggplot2)
 
-## klassify
+ggplot(faithful, aes(eruptions)) +
+  geom_density() +
+  geom_rug() +
+  theme_minimal()
+```
+
+Currently, these clusters are *implicit*, meaning we do not have a categorical variable associating each observation with a cluster. We could assign observations less than, say, 3.0 to Group 1 and the remainder to Group 2.
+
+`klassify` does this automatically - no extra inputs needed.
 
 ```{r}
 library(sift)
 
-x <- c(1, 2, 2, 5, 3000)
-```
-By value, a natural split for `x` would be:
+k <- klassify(faithful$eruptions)
 
-* **Group 1**: 1, 2, 2, 5
-* **Group 2**: 3000
-
-`klassify` does this automatically
-
-```{r}
-klassify(x)
+head(k)
 ```
 
+
+```{r echo = FALSE, fig.height=2}
+faithful$k <- k
+
+ggplot(faithful, aes(eruptions)) +
+  geom_density() +
+  geom_rug(aes(color = factor(k))) +
+  theme_minimal() +
+  scale_color_discrete(name = "k")
+```
+
+
+### `sift`
+
+Imagine `dplyr::filter()` that includes neighboring observations.
