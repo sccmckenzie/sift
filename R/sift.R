@@ -3,13 +3,14 @@
 #' @return
 #' A data frame.
 #' @export
-#'
+#' @importFrom dplyr %>%
 #'
 #' @examples
 #' 1
 sift <- function(.data, sift.col, scope, ...) {
   UseMethod("sift")
 }
+
 
 #' @export
 sift.data.frame <- function(.data, sift.col, scope, ...) {
@@ -23,6 +24,7 @@ sift.data.frame <- function(.data, sift.col, scope, ...) {
     },
     x <- as.numeric(dplyr::pull(.data, {{sift.col}}))
   )
+
 
   # verify scope
   if(rlang::is_missing(rlang::enexpr(scope))) stop("Must supply scope amount")
@@ -50,15 +52,20 @@ sift.data.frame <- function(.data, sift.col, scope, ...) {
     return(filter(.data, FALSE) %>% mutate(.anchor = logical()))
   }
 
+  .data[[".anchor"]] <- loc
+
   gi <- dplyr::group_indices(.data)
 
-  piled <- pile(x, gi, x[loc], gi[loc])
+  df <- tibble::tibble(loc, gi, x, i = seq_along(x)) %>%
+    dplyr::group_by(gi) %>%
+    dplyr::mutate(x1 = dplyr::if_else(loc, x - scope[1], NA_real_),
+                  x2 = dplyr::if_else(loc, x + scope[2], NA_real_)) %>%
+    # below is opportunity for future Rcpp optimization
+    tidyr::fill(x1, .direction = "up") %>%
+    tidyr::fill(x2, .direction = "down") %>%
+    dplyr::filter(x > x1 | x < x2)
 
-  index <- (piled[[1]] < scope[1]) | (piled[[2]] < scope[2])
-
-  index[is.na(index)] <- FALSE
-
-  dplyr::dplyr_row_slice(.data, index)
+  dplyr::dplyr_row_slice(.data, df$i)
 }
 
 

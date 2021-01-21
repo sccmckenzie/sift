@@ -11,8 +11,15 @@ LazyData: true
 Imports: 
     Rcpp (>= 1.0.5),
     pastecs,
-    stats
+    stats,
+    dplyr,
+    rlang,
+    tidyr
 LinkingTo: Rcpp
 RoxygenNote: 7.1.1
 Suggests: 
-    ggplot2
+    ggplot2,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)

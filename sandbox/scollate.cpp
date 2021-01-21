@@ -3,6 +3,7 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
 // [[Rcpp::export]]
 std::vector<int>  scollate(std::vector<double> x, std::vector<double> boundaries) {
 
