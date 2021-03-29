@@ -2,13 +2,15 @@
 #'
 #' @param x Vector to be clustered. Must contain at least 1 non-missing value.
 #' @param bw kernel bandwidth. Default "SJ" should suffice more application, however you can supply a custom numeric value. See ?stats::density for more information.
+#' @param fixed logical; if \code{TRUE}, performs simple 1-dimensional clustering without kernel density estimation. default FALSE.
 #'
 #' @return
 #' An integer vector identifying the cluster corresponding to each element in \code{x}.
 #' @export
 #'
 #' @examples
-#' # Below vector clearly has 2 groups. kluster will identify these groups using kernel density estimation.
+#' # Below vector clearly has 2 groups.
+#' # kluster will identify these groups using kernel density estimation.
 #'
 #' kluster(c(0.1, 0.2, 1))
 #'
@@ -33,7 +35,7 @@
 #'   geom_rug(aes(color = factor(k))) +
 #'   theme_minimal() +
 #'   scale_color_discrete(name = "k")
-kluster <- function(x, bw = "SJ") {
+kluster <- function(x, bw = "SJ", fixed = FALSE) {
 
   # Coerce x to numeric
   tryCatch(
@@ -47,6 +49,15 @@ kluster <- function(x, bw = "SJ") {
     stop("input x must contain at least 1 non-missing value")
   }
 
+  if (fixed) {
+    tryCatch(
+      warning = function(cnd) {
+        stop("input bw must be coercible to <numeric> if fixed = TRUE")
+      },
+      bw <- as.numeric(bw[[1]])
+    )
+  }
+
   # Handle missing data while preserving indices
   xdf <- data.frame(i = seq_along(x),
                     x = x,
@@ -56,7 +67,6 @@ kluster <- function(x, bw = "SJ") {
   xnm <- xnm[order(xnm$x), ]
   xnm$x <- xnm$x - min(xnm$x)
   nnm <- nrow(xnm)
-
 
   if (nnm < 1) {
     stop("input x must contain at least 1 non-missing value")
@@ -68,14 +78,19 @@ kluster <- function(x, bw = "SJ") {
   }
 
   # kernel density estimation
-  d <- stats::density(xnm$x, bw = bw)
-  d$y <- d$y / max(d$y)
-  d$y[d$y < 0.00001] <- 0
+  if (!fixed) {
+    d <- stats::density(xnm$x, bw = bw)
+    d$y <- d$y / max(d$y)
+    d$y[d$y < 0.00001] <- 0
 
-  tp <- pastecs::turnpoints(d$y)
-  boundaries <- d$x[tp$pos[tp$pits]]
+    tp <- pastecs::turnpoints(d$y)
+    boundaries <- d$x[tp$pos[tp$pits]]
 
-  xnm$out <- findInterval(xnm$x, boundaries) + 1
+    xnm$out <- findInterval(xnm$x, boundaries) + 1
+  } else {
+    xnm$out <- xnm$x - dplyr::lag(xnm$x, default = xnm$x[1])
+    xnm$out <- cumsum(xnm$out > bw) + 1
+  }
 
   result <- rbind(xdf[is.na(xdf$x), ], xnm)
 

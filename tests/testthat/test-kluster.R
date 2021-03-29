@@ -11,7 +11,7 @@ test_that("Test kluster behavior for various input types", {
 })
 
 test_that("Test kluster provides expected output", {
-  expect_equal(unique(kluster(sift:::mopac_raw$time)), 1:7)
+  expect_equal(unique(kluster(mopac::rush_hour$time)), 1:7)
   expect_equal(kluster(1e8 + 0:5), kluster(0:5))
 })
 

@@ -4,12 +4,14 @@
 \alias{kluster}
 \title{Automatically cluster 1-dimensional continuous data.}
 \usage{
-kluster(x, bw = "SJ")
+kluster(x, bw = "SJ", fixed = FALSE)
 }
 \arguments{
 \item{x}{Vector to be clustered. Must contain at least 1 non-missing value.}
 
 \item{bw}{kernel bandwidth. Default "SJ" should suffice more application, however you can supply a custom numeric value. See ?stats::density for more information.}
+
+\item{fixed}{logical; if \code{TRUE}, performs simple 1-dimensional clustering without kernel density estimation. default FALSE.}
 }
 \value{
 An integer vector identifying the cluster corresponding to each element in \code{x}.
@@ -18,7 +20,8 @@ An integer vector identifying the cluster corresponding to each element in \code
 Automatically cluster 1-dimensional continuous data.
 }
 \examples{
-# Below vector clearly has 2 groups. kluster will identify these groups using kernel density estimation.
+# Below vector clearly has 2 groups.
+# kluster will identify these groups using kernel density estimation.
 
 kluster(c(0.1, 0.2, 1))
 

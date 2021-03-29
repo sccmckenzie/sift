@@ -3,6 +3,4 @@
 S3method(sift,data.frame)
 export(kluster)
 export(sift)
-importFrom(Rcpp,sourceCpp)
-importFrom(dplyr,"%>%")
-useDynLib(sift, .registration = TRUE)
+import(dplyr)

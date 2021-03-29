@@ -1,23 +1,17 @@
-#' Prices of 50,000 round cut diamonds.
+#' 2020 New York Times Headlines
 #'
-#' A simulated dataset of toll booth records for Loop 1 (aka "Mopac") in Austin, Texas.
-#' Traffic density & make/model/color frequency based on actual observational data obtained in May 2020.
+#' Includes selected headlines and additional metadata for NYT articles throughout 2020. This dataset is not a comprehensive account of all major events from 2020.
 #'
-#' Dataset contains records from 2 toll booths:
-#' (1) Plaza (north outskirts of Austin)
-#' (2) 45 (south outskirts of Austin)
-#'
-#' For example, records with direction == "south" & toll_booth == "plaza" indicate vehicles travelling into town.
-#'
-#' @format A data frame with 109,375 rows and 5 variables:
+#' @format A data frame with 1,830 rows and 6 variables:
 #' \describe{
-#'   \item{t}{dttm, time at which vehicle traverse toll booth}
-#'   \item{toll_booth}{character, location of vehicle}
-#'   \item{direction}{character, direction of travel}
-#'   \item{plate}{character, unique license plate of vehicle}
-#'   \item{make}{character, vehicle manufacturer}
-#'   \item{model}{character, vehicle model}
-#'   \item{color}{character, vehicle color}
+#'   \item{headline}{Article Headline}
+#'   \item{abstract}{Brief summary of article}
+#'   \item{byline}{Contributing Writers}
+#'   \item{pub_date}{Date of Publication}
+#'   \item{section_name}{NYT section in which article was published}
+#'   \item{web_url}{Article URL}
 #'   ...
 #' }
-"mopac"
+#'
+#' @source Obtained using \href{https://developer.nytimes.com/}{NYT Developer Portal} (Archive API)
+"nyt2020"

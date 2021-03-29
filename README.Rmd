@@ -12,8 +12,8 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%",
-  dpi = 300,
-  type = 'cairo'
+  warning = FALSE,
+  dev = 'svglite'
 )
 ```
 
@@ -29,15 +29,66 @@ sift facilitates **intelligent** & **efficient** exploration of datasets.
 devtools::install_github("sccmckenzie/sift")
 ```
 
-### `kluster`
+sift is designed to work seamlessly with tidyverse.
 
-Imagine 1D K-means, except K is chosen automatically. As an example, consider the `faithful` dataset. 
+```{r message=FALSE}
+library(tidyverse) # needed for below examples
+library(sift)
+```
 
-The density plot below clearly demonstrates there are **2** clusters of eruptions.
+### 1. `sift::sift()`
+##### Imagine `dplyr::filter()` that includes neighboring observations.
+
+Perhaps you remember the Utah monolith. The buzz surrounding its discovery (and disappearance) served as a welcome diversion from the otherwise upsetting twists and turns of 2020.
+
+<a title="Patrickamackie2 (Patrick A. Mackie), CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Utah_Monolith.jpg"><img width="256" alt="Utah Monolith" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Utah_Monolith.jpg/512px-Utah_Monolith.jpg"></a>
+
+Suppose we are asked: *what else was happening in the world around this time?*
+
+Let's peruse the `nyt2020` dataset to refresh our memory.
+
+```{r}
+sift::nyt2020 %>% 
+  head(10)
+```
+
+```{r}
+nyt2020 %>% 
+  filter(str_detect(headline, "Monolith")) %>% 
+  glimpse()
+```
+
+The monolith story broke on 2020-11-24. Prior to writing this documentation, I certainly would not have remembered this happening in November specifically.
+
+Let's take a peek at other headlines from ±2 days.
+
+```{r}
+nyt2020 %>% 
+  filter(pub_date > "2020-11-22",
+         pub_date < "2020-11-26") %>% 
+  select(headline, abstract, pub_date)
+```
+
+Notice that it took **two steps** to achieve the above result. We first had to **find the date of the monolith story** then **perform a subsequent call to `filter()`**. This procedure would quickly become a nuisance after a few iterations.
+
+`sift()` provides an interface to perform this exact process in **one step**.
+
+```{r}
+nyt2020 %>% 
+  sift(pub_date, scope = 2, str_detect(headline, "Monolith")) %>% 
+  select(headline, abstract, pub_date)
+```
+
+Under the hood, `sift()` passes `str_detect(headline, "Monolith")` to `dplyr::filter()`, then augments the filtered observations to include any rows falling in ±2 day window (specified by `pub_date` and `scope = 2`).
+
+### 2. `sift::kluster()`
+##### Imagine 1D K-means, except K is chosen automatically.
+
+Consider the `faithful` dataset.
+
+Density plot below clearly demonstrates there are **2** clusters of eruptions.
 
 ```{r echo = FALSE, fig.height=2}
-library(ggplot2)
-
 ggplot(faithful, aes(eruptions)) +
   geom_density() +
   geom_rug() +
@@ -49,8 +100,6 @@ Currently, these clusters are *implicit*, meaning we do not have a categorical v
 `kluster` does this automatically - no extra inputs needed.
 
 ```{r}
-library(sift)
-
 k <- kluster(faithful$eruptions)
 ```
 
@@ -65,6 +114,4 @@ ggplot(faithful, aes(eruptions)) +
   scale_color_discrete(name = "k")
 ```
 
-### `sift`
 
-Imagine `dplyr::filter()` that includes neighboring observations.

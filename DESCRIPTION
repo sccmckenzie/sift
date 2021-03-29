@@ -9,17 +9,20 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    Rcpp (>= 1.0.5),
     pastecs,
     stats,
     dplyr,
     rlang,
-    tidyr
-LinkingTo: Rcpp
+    tidyr,
+    tibble,
+    mopac
 RoxygenNote: 7.1.1
 Suggests: 
+    knitr,
     ggplot2,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    rmarkdown
 Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
+VignetteBuilder: knitr

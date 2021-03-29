@@ -13,5 +13,7 @@ A data frame.
 Augmented data frame subsetting. Imagine `dplyr::filter()` that includes neighboring observations.
 }
 \examples{
-1
+# Grouped dataframes
+# Multiple scopes
+# .cluster/.anchor column
 }
