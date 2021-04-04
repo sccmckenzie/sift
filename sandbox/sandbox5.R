@@ -30,3 +30,5 @@ nyt2020 %>%
 # tibble(a) %>%
 #   ggplot(aes(a, 1)) +
 #   geom_point()
+
+n_distinct(sift(mopac::rush_hour, time, dhours(30), TRUE)$.cluster)

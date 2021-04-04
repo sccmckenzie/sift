@@ -11,7 +11,6 @@
 #' @examples
 #' # Below vector clearly has 2 groups.
 #' # kluster will identify these groups using kernel density estimation.
-#'
 #' kluster(c(0.1, 0.2, 1))
 #'
 #' # kluster shines in cases where manually assigning groups via "eyeballing" is impractical.
@@ -21,14 +20,12 @@
 #' x <- lapply(nodes, function(x) rnorm(10, mean = x, sd = 0.1))
 #' x <- unlist(x)
 #'
-#' kluster(x) # kluster instantly reveals the natural grouping
+#' kluster(x) # kluster reveals the natural grouping
 #'
-#' # Adjust bw argument depending on your application
+#' kluster(x, bw = 10) # adjust bandwidth depending on application
 #'
 #' # Example with faithful dataset
-#'
 #' faithful$k <- kluster(faithful$eruptions)
-#'
 #' library(ggplot2)
 #' ggplot(faithful, aes(eruptions)) +
 #'   geom_density() +
@@ -65,12 +62,14 @@ kluster <- function(x, bw = "SJ", fixed = FALSE) {
 
   xnm <- xdf[!is.na(xdf$x), ]
   xnm <- xnm[order(xnm$x), ]
-  xnm$x <- xnm$x - min(xnm$x)
   nnm <- nrow(xnm)
 
   if (nnm < 1) {
     stop("input x must contain at least 1 non-missing value")
   }
+
+  xnm$x <- xnm$x - min(xnm$x)
+
 
   if (nnm == 1) {
     xdf$out[xnm$i] <- 1L

@@ -22,7 +22,6 @@ Automatically cluster 1-dimensional continuous data.
 \examples{
 # Below vector clearly has 2 groups.
 # kluster will identify these groups using kernel density estimation.
-
 kluster(c(0.1, 0.2, 1))
 
 # kluster shines in cases where manually assigning groups via "eyeballing" is impractical.
@@ -32,14 +31,12 @@ nodes <- runif(10, min = 0, max = 100)
 x <- lapply(nodes, function(x) rnorm(10, mean = x, sd = 0.1))
 x <- unlist(x)
 
-kluster(x) # kluster instantly reveals the natural grouping
+kluster(x) # kluster reveals the natural grouping
 
-# Adjust bw argument depending on your application
+kluster(x, bw = 10) # adjust bandwidth depending on application
 
 # Example with faithful dataset
-
 faithful$k <- kluster(faithful$eruptions)
-
 library(ggplot2)
 ggplot(faithful, aes(eruptions)) +
   geom_density() +
