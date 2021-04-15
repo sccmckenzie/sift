@@ -15,3 +15,15 @@
 #'
 #' @source Obtained using \href{https://developer.nytimes.com/}{NYT Developer Portal} (Archive API)
 "nyt2020"
+
+#' Fragments of US & UK population & leaders
+#'
+#' These datasets are intended to demonstrate usage of \code{sift::break_join}.
+#'
+#' @source See \code{tidyr::\link[tidyr]{population}} and \code{ggplot2::\link[ggplot2]{presidential}}.
+#' @format NULL
+"us_uk_pop"
+
+#' @rdname us_uk_pop
+#' @format NULL
+"us_uk_leaders"
