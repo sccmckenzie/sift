@@ -15,7 +15,6 @@ Imports:
     rlang (>= 0.4.3),
     tidyr (>= 1.0.0),
     tibble,
-    mopac,
     purrr
 RoxygenNote: 7.1.1
 Suggests: 
@@ -23,7 +22,8 @@ Suggests:
     ggplot2,
     testthat (>= 3.0.0),
     rmarkdown,
-    hms
+    hms,
+    mopac
 Config/testthat/edition: 3
 Depends: 
     R (>= 3.3.0)
