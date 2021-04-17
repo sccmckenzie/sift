@@ -13,7 +13,7 @@ break_join(x, y, brk = character(), by = NULL, ...)
 
 \item{brk}{Name of column in \code{x} and \code{y} to join by via interval overlapping. Must be coercible to numeric.}
 
-\item{by}{Joining variables, if needed. See \code{dplyr::\link[dplyr]{left_join}}.}
+\item{by}{Joining variables, if needed. For more, see \link[dplyr]{mutate-joins}.}
 
 \item{...}{additional arguments automatically directed to \code{findInterval} and \code{dplyr::left_join}. No partial matching.}
 }
@@ -27,7 +27,7 @@ An object of the same type as \code{x}.
 }
 }
 \description{
-User-friendly interface that synthesizes power of \code{dplyr::\link[dplyr]{left_join}} and \code{findInterval}.
+User-friendly interface that synthesizes power of \code{dplyr::left_join} and \code{findInterval}.
 }
 \examples{
 # joining USA + UK leaders with population time-series

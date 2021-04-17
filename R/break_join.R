@@ -1,12 +1,12 @@
 #' Join tables based on overlapping intervals.
 #'
 #' @description
-#' User-friendly interface that synthesizes power of \code{dplyr::\link[dplyr]{left_join}} and \code{findInterval}.
+#' User-friendly interface that synthesizes power of \code{dplyr::left_join} and \code{findInterval}.
 #'
 #' @param x A data frame.
 #' @param y Data frame containing desired reference information.
 #' @param brk Name of column in \code{x} and \code{y} to join by via interval overlapping. Must be coercible to numeric.
-#' @param by Joining variables, if needed. See \code{dplyr::\link[dplyr]{left_join}}.
+#' @param by Joining variables, if needed. See \link[dplyr]{mutate-joins}.
 #' @param ... additional arguments automatically directed to \code{findInterval} and \code{dplyr::left_join}. No partial matching.
 #'
 #' @return

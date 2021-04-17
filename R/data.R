@@ -20,7 +20,7 @@
 #'
 #' These datasets are intended to demonstrate usage of \code{sift::break_join}.
 #'
-#' @source See \code{tidyr::\link[tidyr]{population}} and \code{ggplot2::\link[ggplot2]{presidential}}.
+#' @source See \code{tidyr::\link[tidyr]{who}} and \code{ggplot2::\link[ggplot2]{presidential}}.
 #' @format NULL
 "us_uk_pop"
 

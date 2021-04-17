@@ -23,7 +23,8 @@ Suggests:
     testthat (>= 3.0.0),
     rmarkdown,
     hms,
-    mopac
+    mopac,
+    stringr
 Config/testthat/edition: 3
 Depends: 
     R (>= 3.3.0)

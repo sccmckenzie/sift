@@ -6,7 +6,7 @@
 \alias{us_uk_leaders}
 \title{Fragments of US & UK population & leaders}
 \source{
-See \code{tidyr::\link[tidyr]{population}} and \code{ggplot2::\link[ggplot2]{presidential}}.
+See \code{tidyr::\link[tidyr]{who}} and \code{ggplot2::\link[ggplot2]{presidential}}.
 }
 \usage{
 us_uk_pop
