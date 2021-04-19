@@ -27,3 +27,8 @@
 #' @rdname us_uk_pop
 #' @format NULL
 "us_uk_leaders"
+
+#' Simulated records of radio station communications.
+#'
+#' Dataset intended to demonstrate usage of \code{sift::conjecture}.
+"comms"

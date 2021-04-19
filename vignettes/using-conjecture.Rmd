@@ -1,0 +1,20 @@
+---
+title: "Using conjecture"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using conjecture}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+`conjecture()` is the black swan of the `sift` family. While sift, break_join and kluster are all intended for everyday household use, conjecture is an extremely powerful hammer designed for a specific nail.
+
+At its heart, conjecture is a reshaping operation similar to `tidyr::pivot_wider()`. However, the intended application for conjecture is more idiosyncratic than that of pivot_wider. This vignette illustrates the basic aspects of such an application.
+
