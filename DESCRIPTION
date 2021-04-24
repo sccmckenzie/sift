@@ -1,8 +1,15 @@
 Package: sift
 Type: Package
 Title: Intelligently peruse data
-Version: 0.0.0.9000
-Author: Scott McKenzie <sccmckenzie@gmail.com>
+Version: 0.1.0
+Authors@R: 
+    c(person(given = "Scott",
+             family = "McKenzie",
+             role = c("aut", "cre"),
+             email = "sccmckenzie@gmail.com"),
+      person(given = "RStudio",
+             role = c("cph"),
+             comment = "internal functions from dplyr.R"))
 Maintainer: Scott McKenzie <sccmckenzie@gmail.com>
 Description: Facilitate extraction of key information from common datasets.
 License: MIT + file LICENSE

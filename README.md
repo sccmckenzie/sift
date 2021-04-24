@@ -4,6 +4,8 @@
 # sift <img src='man/figures/logo.png' align="right" height="200" />
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/sccmckenzie/sift/workflows/R-CMD-check/badge.svg)](https://github.com/sccmckenzie/sift/actions)
 <!-- badges: end -->
 
 sift facilitates **intelligent** & **efficient** exploration of

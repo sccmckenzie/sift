@@ -34,8 +34,9 @@
 #' break_join(a, b, brk = "q", all.inside = TRUE) # note missing values have been filled
 #'
 #' # joining toll prices with vehicle time-series
+#'
 #' library(mopac)
-#' library(dplyr)
+#' library(dplyr, warn.conflicts = FALSE)
 #' library(hms)
 #'
 #' express %>%
@@ -136,38 +137,6 @@ has_columns <- function(x) {
 mirror_name <- function(x) {
   if (is.null(names(x))) return(set_names(x, x))
   return(x)
-}
-
-# adapted from dplyr
-assign_by <- function(x, y, brk) {
-  by <- setdiff(intersect(tbl_vars(x), tbl_vars(y)), c(brk, names(brk)))
-  if (length(by) == 0) return(character()) # in dplyr, this leads to abort instead
-  by_quoted <- encodeString(by, quote = '"')
-  if (length(by_quoted) == 1L) {
-    by_code <- by_quoted
-  } else {
-    by_code <- paste0("c(", paste(by_quoted, collapse = ", "), ")")
-  }
-  inform(paste0("Joining, by = ", by_code))
-  return(by)
-}
-
-# adapted from dplyr
-check_name <- function(x, y, suffix) {
-  if (identical(suffix, "")) {
-    return(x)
-  }
-
-  out <- rep_along(x, NA_character_)
-  for (i in seq_along(x)) {
-    nm <- x[[i]]
-    while (nm %in% y || nm %in% out[seq_len(i - 1)]) {
-      nm <- paste0(nm, suffix)
-    }
-
-    out[[i]] <- nm
-  }
-  out
 }
 
 align_intervals <- function(.x, .y, brk, by, skeleton, ...) {

@@ -43,8 +43,9 @@ break_join(a, b, brk = "q", by = "p") # same result
 break_join(a, b, brk = "q", all.inside = TRUE) # note missing values have been filled
 
 # joining toll prices with vehicle time-series
+
 library(mopac)
-library(dplyr)
+library(dplyr, warn.conflicts = FALSE)
 library(hms)
 
 express \%>\%
