@@ -7,3 +7,5 @@
 ^README\.Rmd$
 ^data-raw$
 sandbox/
+^doc$
+^Meta$

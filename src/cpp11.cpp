@@ -5,7 +5,7 @@
 #include "cpp11/declarations.hpp"
 
 // interlace.cpp
-doubles interlace(integers A_index, doubles A_x, integers B_index, doubles B_x);
+integers interlace(integers A_index, doubles A_x, integers B_index, doubles B_x);
 extern "C" SEXP _sift_interlace(SEXP A_index, SEXP A_x, SEXP B_index, SEXP B_x) {
   BEGIN_CPP11
     return cpp11::as_sexp(interlace(cpp11::as_cpp<cpp11::decay_t<integers>>(A_index), cpp11::as_cpp<cpp11::decay_t<doubles>>(A_x), cpp11::as_cpp<cpp11::decay_t<integers>>(B_index), cpp11::as_cpp<cpp11::decay_t<doubles>>(B_x)));

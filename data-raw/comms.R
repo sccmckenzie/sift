@@ -10,7 +10,8 @@ n <- 5e4
 set.seed(1)
 comms <- tibble(station = rep(LETTERS[1:4], n/4),
                 timestamp = t0 + rnorm(n, sd = 3600 * 24 * 7),
-                msg_code = sample(1:(n/2), n, replace = TRUE),
-                type = sample(c("in", "out"), n, replace = TRUE))
+                msg_code = sample(1:(n/16), n, replace = TRUE),
+                type = sample(c("receive", "send"), n, replace = TRUE)) %>%
+  arrange(timestamp)
 
 usethis::use_data(comms, overwrite = TRUE)
