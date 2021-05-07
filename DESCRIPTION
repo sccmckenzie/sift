@@ -1,6 +1,6 @@
 Package: sift
 Type: Package
-Title: Intelligently peruse data
+Title: Intelligently Peruse Data
 Version: 0.1.0
 Authors@R: 
     c(person(given = "Scott",
@@ -31,8 +31,8 @@ Suggests:
     ggplot2,
     testthat (>= 3.0.0),
     rmarkdown,
-    hms,
     mopac,
+    hms,
     stringr,
     readr
 Config/testthat/edition: 3
