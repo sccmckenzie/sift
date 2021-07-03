@@ -179,78 +179,78 @@ Choose how many observations to include by adjusting inputs <code>sift.col</code
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># See current events from same timeframe as 2020 Utah Monolith discovery.</span>
 <span class='fu'>sift</span><span class='op'>(</span><span class='va'>nyt2020</span>, <span class='va'>pub_date</span>, scope <span class='op'>=</span> <span class='fl'>2</span>, <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span><span class='op'>(</span><span class='st'>"Monolith"</span>, <span class='va'>headline</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 15 x 8</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 15 x 8</span>
 #&gt;    headline   abstract   byline  pub_date   section_name web_url  .cluster .key 
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;lgl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> Biden Has… The presi… </span><span style='color: #949494;'>"</span><span>By Gi… 2020-11-23 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> Pat Quinn… Mr. Quinn… </span><span style='color: #949494;'>"</span><span>By Co… 2020-11-23 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> Business … At the ur… </span><span style='color: #949494;'>"</span><span>By Ka… 2020-11-23 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> Pandemic … As urbani… </span><span style='color: #949494;'>"</span><span>By Ji… 2020-11-23 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> No, Joe B… The video… </span><span style='color: #949494;'>"</span><span>By Li… 2020-11-23 Technology   https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> Monolith … A metal m… </span><span style='color: #949494;'>"</span><span>By St… 2020-11-24 Science      https:/…        1 TRUE 
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> Coronavir… Upper Man… </span><span style='color: #949494;'>"</span><span>By Tr… 2020-11-24 New York     https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> Two Darwi… Cambridge… </span><span style='color: #949494;'>"</span><span>By Me… 2020-11-24 World        https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> Recent Co… Recent co… </span><span style='color: #949494;'>"</span><span>By Is… 2020-11-24 Business Day https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> Trump Adm… A key off… </span><span style='color: #949494;'>"</span><span>By Mi… 2020-11-24 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>11</span><span> The C.D.C… Federal h… </span><span style='color: #949494;'>"</span><span>By Ro… 2020-11-25 World        https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>12</span><span> A Poem of… The New Y… </span><span style='color: #949494;'>""</span><span>      2020-11-25 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>13</span><span> Casualtie… The war i… </span><span style='color: #949494;'>"</span><span>By Ri… 2020-11-25 World        https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>14</span><span> Iran Free… Iranian s… </span><span style='color: #949494;'>"</span><span>By Fa… 2020-11-25 World        https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>15</span><span> A Poem of… The New Y… </span><span style='color: #949494;'>""</span><span>      2020-11-25 U.S.         https:/…        1 FALSE</div><div class='input'>
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> Biden Has… The presi… <span style='color: #949494;'>"</span>By Gi… 2020-11-23 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 2</span> Pat Quinn… Mr. Quinn… <span style='color: #949494;'>"</span>By Co… 2020-11-23 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 3</span> Business … At the ur… <span style='color: #949494;'>"</span>By Ka… 2020-11-23 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 4</span> Pandemic … As urbani… <span style='color: #949494;'>"</span>By Ji… 2020-11-23 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 5</span> No, Joe B… The video… <span style='color: #949494;'>"</span>By Li… 2020-11-23 Technology   https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 6</span> Monolith … A metal m… <span style='color: #949494;'>"</span>By St… 2020-11-24 Science      https:/…        1 TRUE 
+#&gt; <span style='color: #BCBCBC;'> 7</span> Coronavir… Upper Man… <span style='color: #949494;'>"</span>By Tr… 2020-11-24 New York     https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 8</span> Two Darwi… Cambridge… <span style='color: #949494;'>"</span>By Me… 2020-11-24 World        https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 9</span> Recent Co… Recent co… <span style='color: #949494;'>"</span>By Is… 2020-11-24 Business Day https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>10</span> Trump Adm… A key off… <span style='color: #949494;'>"</span>By Mi… 2020-11-24 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>11</span> The C.D.C… Federal h… <span style='color: #949494;'>"</span>By Ro… 2020-11-25 World        https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>12</span> A Poem of… The New Y… <span style='color: #949494;'>""</span>      2020-11-25 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>13</span> Casualtie… The war i… <span style='color: #949494;'>"</span>By Ri… 2020-11-25 World        https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>14</span> Iran Free… Iranian s… <span style='color: #949494;'>"</span>By Fa… 2020-11-25 World        https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>15</span> A Poem of… The New Y… <span style='color: #949494;'>""</span>      2020-11-25 U.S.         https:/…        1 FALSE</div><div class='input'>
 <span class='co'># or Biden's presidential victory.</span>
 <span class='fu'>sift</span><span class='op'>(</span><span class='va'>nyt2020</span>, <span class='va'>pub_date</span>, scope <span class='op'>=</span> <span class='fl'>2</span>, <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span><span class='op'>(</span><span class='st'>"Biden is elected"</span>, <span class='va'>headline</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 15 x 8</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 15 x 8</span>
 #&gt;    headline   abstract   byline  pub_date   section_name web_url  .cluster .key 
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;lgl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> As China’… New telev… By Viv… 2020-11-06 World        https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> Al Roker,… Mr. Roker… By Joh… 2020-11-06 Business Day https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> The Lates… A new stu… By Ame… 2020-11-06 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> Secretari… While sta… By Sha… 2020-11-06 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> Democracy… WILMINGTO… By Tho… 2020-11-06 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> Joe Biden… WILMINGTO… By Kat… 2020-11-07 U.S.         https:/…        1 TRUE 
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> Biden def… Joseph R.… By Mik… 2020-11-07 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> Tension, … The news … By Joh… 2020-11-07 Business Day https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> Voters Sa… About a f… By Sab… 2020-11-07 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> After War… Amid the … By Rei… 2020-11-07 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>11</span><span> Turkey’s … President… By Car… 2020-11-08 Business Day https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>12</span><span> There’s n… On Twitte… By Jim… 2020-11-08 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>13</span><span> A Nation … Nebraska … By Dio… 2020-11-08 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>14</span><span> Five Take… As he add… By Ada… 2020-11-08 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>15</span><span> Read Joe … In his vi… By Mat… 2020-11-08 U.S.         https:/…        1 FALSE</div><div class='input'>
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> As China’… New telev… By Viv… 2020-11-06 World        https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 2</span> Al Roker,… Mr. Roker… By Joh… 2020-11-06 Business Day https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 3</span> The Lates… A new stu… By Ame… 2020-11-06 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 4</span> Secretari… While sta… By Sha… 2020-11-06 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 5</span> Democracy… WILMINGTO… By Tho… 2020-11-06 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 6</span> Joe Biden… WILMINGTO… By Kat… 2020-11-07 U.S.         https:/…        1 TRUE 
+#&gt; <span style='color: #BCBCBC;'> 7</span> Biden def… Joseph R.… By Mik… 2020-11-07 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 8</span> Tension, … The news … By Joh… 2020-11-07 Business Day https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 9</span> Voters Sa… About a f… By Sab… 2020-11-07 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>10</span> After War… Amid the … By Rei… 2020-11-07 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>11</span> Turkey’s … President… By Car… 2020-11-08 Business Day https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>12</span> There’s n… On Twitte… By Jim… 2020-11-08 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>13</span> A Nation … Nebraska … By Dio… 2020-11-08 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>14</span> Five Take… As he add… By Ada… 2020-11-08 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>15</span> Read Joe … In his vi… By Mat… 2020-11-08 U.S.         https:/…        1 FALSE</div><div class='input'>
 <span class='co'># We can specify lower &amp; upper scope to see what happened AFTER Trump tested positive.</span>
 <span class='fu'>sift</span><span class='op'>(</span><span class='va'>nyt2020</span>, <span class='va'>pub_date</span>, scope <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span><span class='op'>(</span><span class='st'>"Trump Tests Positive"</span>, <span class='va'>headline</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 10 x 8</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 10 x 8</span>
 #&gt;    headline   abstract   byline  pub_date   section_name web_url  .cluster .key 
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;lgl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> </span><span style='color: #949494;'>"</span><span>Trump Te… The presi… </span><span style='color: #949494;'>"</span><span>By Pe… 2020-10-02 U.S.         https:/…        1 TRUE 
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> </span><span style='color: #949494;'>"</span><span>‘You don… President… </span><span style='color: #949494;'>"</span><span>By Da… 2020-10-02 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> </span><span style='color: #949494;'>"</span><span>17 Repub… Seventeen… </span><span style='color: #949494;'>"</span><span>By Ca… 2020-10-02 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> </span><span style='color: #949494;'>"</span><span>TV news … Televisio… </span><span style='color: #949494;'>"</span><span>By Mi… 2020-10-02 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> </span><span style='color: #949494;'>""</span><span>         Positive … </span><span style='color: #949494;'>""</span><span>      2020-10-02 World        https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> </span><span style='color: #949494;'>"</span><span>Battling… The blaze… </span><span style='color: #949494;'>"</span><span>By Ma… 2020-10-03 World        https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> </span><span style='color: #949494;'>"</span><span>Obama of… Former Pr… </span><span style='color: #949494;'>"</span><span>By Li… 2020-10-03 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> </span><span style='color: #949494;'>"</span><span>Contact … Tracing i… </span><span style='color: #949494;'>"</span><span>By Be… 2020-10-03 World        https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> </span><span style='color: #949494;'>"</span><span>What to … Dr. Conle… </span><span style='color: #949494;'>"</span><span>By Al… 2020-10-03 U.S.         https:/…        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> </span><span style='color: #949494;'>"</span><span>Trump’s … Outside e… </span><span style='color: #949494;'>"</span><span>By Gi… 2020-10-03 Health       https:/…        1 FALSE</div><div class='input'>
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> <span style='color: #949494;'>"</span>Trump Te… The presi… <span style='color: #949494;'>"</span>By Pe… 2020-10-02 U.S.         https:/…        1 TRUE 
+#&gt; <span style='color: #BCBCBC;'> 2</span> <span style='color: #949494;'>"</span>‘You don… President… <span style='color: #949494;'>"</span>By Da… 2020-10-02 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 3</span> <span style='color: #949494;'>"</span>17 Repub… Seventeen… <span style='color: #949494;'>"</span>By Ca… 2020-10-02 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 4</span> <span style='color: #949494;'>"</span>TV news … Televisio… <span style='color: #949494;'>"</span>By Mi… 2020-10-02 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 5</span> <span style='color: #949494;'>""</span>         Positive … <span style='color: #949494;'>""</span>      2020-10-02 World        https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 6</span> <span style='color: #949494;'>"</span>Battling… The blaze… <span style='color: #949494;'>"</span>By Ma… 2020-10-03 World        https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 7</span> <span style='color: #949494;'>"</span>Obama of… Former Pr… <span style='color: #949494;'>"</span>By Li… 2020-10-03 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 8</span> <span style='color: #949494;'>"</span>Contact … Tracing i… <span style='color: #949494;'>"</span>By Be… 2020-10-03 World        https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'> 9</span> <span style='color: #949494;'>"</span>What to … Dr. Conle… <span style='color: #949494;'>"</span>By Al… 2020-10-03 U.S.         https:/…        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>10</span> <span style='color: #949494;'>"</span>Trump’s … Outside e… <span style='color: #949494;'>"</span>By Gi… 2020-10-03 Health       https:/…        1 FALSE</div><div class='input'>
 <span class='co'># sift recognizes dplyr group specification.</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/sccmckenzie/mopac'>mopac</a></span><span class='op'>)</span>
 <span class='va'>express</span> <span class='op'>%&gt;%</span>
  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>direction</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
  <span class='fu'>sift</span><span class='op'>(</span><span class='va'>time</span>, <span class='fl'>30</span>, <span class='va'>plate</span> <span class='op'>==</span> <span class='st'>"EAS-1671"</span><span class='op'>)</span> <span class='co'># row augmentation performed within groups.</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 9 x 8</span><span>
-#&gt; </span><span style='color: #949494;'># Groups:   direction [2]</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 9 x 8</span>
+#&gt; <span style='color: #949494;'># Groups:   direction [2]</span>
 #&gt;   direction time                plate    make     model   color  .cluster .key 
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dttm&gt;</span><span>              </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;lgl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> North     2020-05-20 </span><span style='color: #949494;'>05:10:41</span><span> EAS-1671 Ford     F-250   Silver        1 TRUE 
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> South     2020-05-20 </span><span style='color: #949494;'>19:24:11</span><span> AMU-4948 GMC      Denali  Black         1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> South     2020-05-20 </span><span style='color: #949494;'>19:24:21</span><span> PKP-9655 Mazda    CX-3    Black         1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> South     2020-05-20 </span><span style='color: #949494;'>19:24:29</span><span> EAS-1671 Ford     F-250   Silver        1 TRUE 
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span> South     2020-05-20 </span><span style='color: #949494;'>19:24:31</span><span> TER-0859 Lexus    LX      Black         1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>6</span><span> South     2020-05-20 </span><span style='color: #949494;'>19:24:33</span><span> PZF-7570 Porsche  911     Silver        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>7</span><span> South     2020-05-20 </span><span style='color: #949494;'>19:24:42</span><span> AMR-9265 Dodge    Journey White         1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>8</span><span> South     2020-05-20 </span><span style='color: #949494;'>19:24:50</span><span> VRB-2044 Jeep     Patriot Silver        1 FALSE
-#&gt; </span><span style='color: #BCBCBC;'>9</span><span> South     2020-05-20 </span><span style='color: #949494;'>19:24:56</span><span> RTJ-8900 Infiniti QX50    Silver        1 FALSE</div></span></pre>
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;lgl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> North     2020-05-20 <span style='color: #949494;'>05:10:41</span> EAS-1671 Ford     F-250   Silver        1 TRUE 
+#&gt; <span style='color: #BCBCBC;'>2</span> South     2020-05-20 <span style='color: #949494;'>19:24:11</span> AMU-4948 GMC      Denali  Black         1 FALSE
+#&gt; <span style='color: #BCBCBC;'>3</span> South     2020-05-20 <span style='color: #949494;'>19:24:21</span> PKP-9655 Mazda    CX-3    Black         1 FALSE
+#&gt; <span style='color: #BCBCBC;'>4</span> South     2020-05-20 <span style='color: #949494;'>19:24:29</span> EAS-1671 Ford     F-250   Silver        1 TRUE 
+#&gt; <span style='color: #BCBCBC;'>5</span> South     2020-05-20 <span style='color: #949494;'>19:24:31</span> TER-0859 Lexus    LX      Black         1 FALSE
+#&gt; <span style='color: #BCBCBC;'>6</span> South     2020-05-20 <span style='color: #949494;'>19:24:33</span> PZF-7570 Porsche  911     Silver        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>7</span> South     2020-05-20 <span style='color: #949494;'>19:24:42</span> AMR-9265 Dodge    Journey White         1 FALSE
+#&gt; <span style='color: #BCBCBC;'>8</span> South     2020-05-20 <span style='color: #949494;'>19:24:50</span> VRB-2044 Jeep     Patriot Silver        1 FALSE
+#&gt; <span style='color: #BCBCBC;'>9</span> South     2020-05-20 <span style='color: #949494;'>19:24:56</span> RTJ-8900 Infiniti QX50    Silver        1 FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
