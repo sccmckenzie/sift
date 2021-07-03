@@ -10,3 +10,4 @@ sandbox/
 ^doc$
 ^Meta$
 ^\.github$
+^cran-comments\.md$

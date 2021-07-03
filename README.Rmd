@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/sccmckenzie/sift/workflows/R-CMD-check/badge.svg)](https://github.com/sccmckenzie/sift/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/sift)](https://CRAN.R-project.org/package=sift)
 <!-- badges: end -->
 
 sift facilitates **intelligent** & **efficient** exploration of datasets.

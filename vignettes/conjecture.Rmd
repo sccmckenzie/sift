@@ -193,10 +193,9 @@ The `express` dataset contains toll records for **northbound** and **southbound*
 
 ```{r}
 library(readr)
+library(mopac)
 
-express <- read_csv("https://raw.githubusercontent.com/sccmckenzie/mopac/master/inst/extdata/express.csv", locale = locale(tz = "US/Central"))
-
-express
+mopac::express
 ```
 
 Suppose we are interested in vehicles using the express lane both `North` and `South` (i.e. commuting to work). It's up to us to designate an anterior `direction`. If we are only interested in vehicles commuting downtown, we set `names_first = "South"`.
